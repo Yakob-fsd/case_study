@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+     <!-- INCLUDING JQUERY-->
+     <script src=
+     "https://code.jquery.com/jquery-3.5.1.js">
+         </script>
+         <!-- CSS FOR STYLING THE PAGE -->
+    <style>
+        table {
+            margin: 0 auto;
+            font-size: large;
+            border: 1px solid black;
+        }
+  
+        h1 {
+            text-align: center;
+            color: #006600;
+            font-size: xx-large;
+            font-family: 'Gill Sans', 
+                'Gill Sans MT', ' Calibri', 
+                'Trebuchet MS', 'sans-serif';
+        }
+  
+        td {
+            background-color: #E4F5D4;
+            border: 1px solid black;
+        }
+  
+        th,
+        td {
+            font-weight: bold;
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+  
+        td {
+            font-weight: lighter;
+        }
+    </style>
+</head>
+<body onload="check()">
+    <!--navbar start-->
+    <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand">Update your To-Do List now...</a>
+          <form class="d-flex">
+            <button class="btn btn-outline-success" type="button" onclick="logout()">Logout</button>
+          </form>
+        </div>
+      </nav>
+    <!--navbar end-->
+
+    <section>
+        <h1>TO-DO LIST</h1>
+        <p>edew</p>
+  
+        <!-- TABLE CONSTRUCTION-->
+        <table id='table'>
+            <!-- HEADING FORMATION -->
+            <tr>
+                <th>User Id</th>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Status</th>
+            </tr>
+  
+            <script>
+                $(document).ready(function () {
+  
+                    // FETCHING DATA FROM JSON FILE
+                    $.getJSON("https://jsonplaceholder.typicode.com/todos", 
+                            function (data) {
+                        var student = '';
+  
+                        // ITERATING THROUGH OBJECTS
+                        $.each(data, function (key, value) {
+  
+                            //CONSTRUCTION OF ROWS HAVING
+                            // DATA FROM JSON OBJECT
+                            student += '<tr>';
+                            student += '<td>' + 
+                                value.userId + '</td>';
+  
+                            student += '<td>' + 
+                                value.id + '</td>';
+  
+                            student += '<td>' + 
+                                value.title + '</td>';
+                            
+                            student += '<td><input type="checkbox" id="stat" value='+ 
+                                value.completed +' onchange="ch()"></td>';
+  
+                            student += '</tr>';
+                        });
+                          
+                        //INSERTING ROWS INTO TABLE 
+                        $('#table').append(student);
+                    });
+                });
+            </script>
+    </section>
+    <script src="foundation.js"></script>    
+</body>
+</html>
+
+
+
+
+
+
+<script>
+    function check()
+    {
+    var unmarkedCheckbox = document.querySelectorAll('input[type="checkbox"]');
+    for (var checkbox of unmarkedCheckbox) {
+        alert(checkbox.value);
+    if (checkbox.value=="true")
+    {
+        checkbox.checked=true;
+        checkbox.disabled=true;
+    }}}
+    
+    function ch()
+    {
+    var unmarkedCheckbox = document.querySelectorAll('input[type="checkbox"]:checked');
+    for (var checkbox of unmarkedCheckbox) {
+    var $input = $('input[type=checkbox]');
+    var $count=$input.not(':disabled').filter(':checked').length;
+    if($count==5)
+    {
+        alert("Congrats 5 tasks has been successfully completed...");
+        exit;
+    }}}
+    
+    </script>
+
+
+

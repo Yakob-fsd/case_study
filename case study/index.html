@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Study</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!--HEADER start-->
+    <header id="header1">
+        <h1 id="heading1">TO-DO-LIST</h1>
+    </header>
+    <!--header end-->
+
+    <h2 id="heading2">Login Form</h2>
+
+    <!--form start-->
+    <div id="loginform" class="col-lg-4" style="margin-left: 32%;margin-top: 10px; border-width: 3px;
+     border-color: saddlebrown; border-style: solid; padding: 10px;">
+    <form>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Username</label>
+          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          <div id="emailHelp" class="form-text"></div>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input type="password" class="form-control" id="exampleInputPassword1">
+        </div>
+        <button type="button" class="btn btn-primary" onclick="validate()">Submit</button>
+      </form>
+    </div>
+    
+    <!--form end--> 
+    <script src="foundation.js"></script>    
+</body>
+</html>
